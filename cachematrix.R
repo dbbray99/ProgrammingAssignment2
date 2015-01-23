@@ -12,7 +12,6 @@ setinverse <- function(x){
 
 cacheSolve <- function(x) {
         ## Return a matrix that is the inverse of 'x'
-        ## add if statement to test if matix has already been inverted
         ## Must add if statement to test if matix has already been inverted
         m <- get("matrixResult")
         ddd <- solve(m)
