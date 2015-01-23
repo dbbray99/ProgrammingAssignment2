@@ -1,15 +1,18 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The function makeCacheMatrix creates as an x by y matrix with elements equal to z 
+        
+makeCacheMatrix <- function(z, x, y) {
+        m <- NULL                               ## Clear the cache
+        m <<- matrix(z, x, y)                   ## Create new matrix cache
+}
 
-## Write a short comment describing this function
-
-makeCacheMatrix <- function(x = matrix()) {
-
+setinverse <- function(x){
+        matrixResult <<- solve(x)
 }
 
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x) {
         ## Return a matrix that is the inverse of 'x'
+        m <- get("matrixResult")
+        ddd <- solve(m)
+        return(ddd)
 }
