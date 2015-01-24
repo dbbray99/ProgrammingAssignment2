@@ -1,19 +1,29 @@
-## The function makeCacheMatrix creates as an x by y matrix with elements equal to z 
+## makeCacheMatrix creates a special matrix to store it's inverse
+makeCacheMatrix <- function(x) {
+        m <<- NULL
+        matrixInv <<- NULL
+        m <<- x
+        message("matrix stored")
+}
+
+## Test to see if the inverse has already been created and if not go and create it
+cacheSolve <- function(m) {
         
-makeCacheMatrix <- function(z, x, y) {
-        m <- NULL                               ## Clear the cache
-        m <<- matrix(z, x, y)                   ## Create new matrix cache
+        test <- get("matrixInv")
+        data <- get("m")
+        
+        if(!is.null(test)) {
+                message("getting cached data")
+                return(test)
+        }        
+        ## Not created so go create the matrix inverse        
+        setinverse(data)   
 }
 
-setinverse <- function(x){
-        matrixResult <<- solve(x)
-}
-
-
-cacheSolve <- function(x) {
-        ## Return a matrix that is the inverse of 'x'
-        ## Must add if statement to test if matix has already been inverted
-        m <- get("matrixResult")
-        ddd <- solve(m)
-        return(ddd)
+## Setinverse actually creates the matrix inverse
+setinverse <- function(m){
+        
+        matrixInv <<- solve(m)
+        message("inverse created")
+        return(matrixInv)
 }
